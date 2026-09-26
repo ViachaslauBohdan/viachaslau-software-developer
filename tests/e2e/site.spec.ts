@@ -8,6 +8,9 @@ test("homepage introduces Viachaslau and links to the company site", async ({ pa
   await expect(page.getByRole("link", { name: "Book a call" }).first()).toHaveAttribute("href", /^https:\/\//)
   const company = page.getByRole("link", { name: "Slavaro Software" }).first()
   await expect(company).toHaveAttribute("href", /^https:\/\//)
+  const myApps = page.getByRole("link", { name: "My apps" }).first()
+  await expect(myApps).toHaveAttribute("href", "https://my-apps-psi-eight.vercel.app/")
+  await expect(myApps).toHaveAttribute("target", "_blank")
 })
 
 test("blog index lists published notes and hides the draft", async ({ page }) => {

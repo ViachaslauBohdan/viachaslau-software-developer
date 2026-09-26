@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 import { AppLink } from "@/components/app-link"
 import { ExternalLink } from "@/components/external-link"
-import { site } from "@/lib/site"
+import { myAppsUrl, site } from "@/lib/site"
 
 export function SiteFooter() {
   return (
@@ -29,6 +29,12 @@ export function SiteFooter() {
           </AppLink>
         </Stack>
       </Stack>
+      <Typography color="text.secondary" sx={{ mt: 2 }}>
+        My apps:{" "}
+        <ExternalLink href={myAppsUrl} color="text.secondary" underline="always">
+          {myAppsUrl}
+        </ExternalLink>
+      </Typography>
     </Container>
   )
 }

@@ -14,11 +14,14 @@ export const site = {
     "Viachaslau Bohdan is a senior software developer who designs, builds, and ships production web products for founders, CTOs, and companies. Company work runs through Slavaro Software.",
 } as const
 
+export const myAppsUrl = "https://my-apps-psi-eight.vercel.app/"
+
 export const nav = [
   { name: "Work", href: "/#work" },
   { name: "For CTOs", href: "/#ctos" },
   { name: "Services", href: "/#services" },
   { name: "Blog", href: "/blog" },
+  { name: "My apps", href: myAppsUrl, external: true as const },
   { name: "Contact", href: "/#contact" },
 ] as const
 

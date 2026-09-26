@@ -17,17 +17,22 @@ import { nav, site } from "@/lib/site"
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
-  const links = nav.map((item) => (
-    <Button
-      key={item.href}
-      component={NextLink}
-      href={item.href}
-      color="inherit"
-      onClick={() => setOpen(false)}
-    >
-      {item.name}
-    </Button>
-  ))
+  const links = nav.map((item) => {
+    const external = "external" in item && item.external
+    return (
+      <Button
+        key={item.name}
+        component={external ? "a" : NextLink}
+        href={item.href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        color="inherit"
+        onClick={() => setOpen(false)}
+      >
+        {item.name}
+      </Button>
+    )
+  })
 
   return (
     <AppBar position="sticky" color="inherit" elevation={0} sx={{ borderBottom: 1, borderColor: "divider" }}>
